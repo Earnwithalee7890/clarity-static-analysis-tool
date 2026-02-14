@@ -1,0 +1,28 @@
+[project]
+name = "clarity-static-analysis-tool"
+authors = []
+description = "Test contracts for static analysis tool"
+telemetry = false
+requirements = []
+boot_contracts = ["pox", "costs-v2", "bns"]
+
+[contracts.vulnerable-sample]
+path = "contracts/vulnerable-sample.clar"
+depends_on = []
+
+[contracts.safe-sample]
+path = "contracts/safe-sample.clar"
+depends_on = []
+
+[repl]
+costs_version = 2
+parser_version = 2
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false

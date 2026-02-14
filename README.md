@@ -2,6 +2,9 @@
 
 A lightweight CLI tool for auditing **Clarity** smart contracts on the Stacks blockchain. It scans your `.clar` files for common security vulnerabilities and best practice violations.
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Language](https://img.shields.io/badge/language-TypeScript%20%7C%20Clarity-blue)
+
 ## Features
 
 - 🕵️ **Recursive Scanning**: Automatically verifies contracts in all subdirectories.
@@ -10,6 +13,12 @@ A lightweight CLI tool for auditing **Clarity** smart contracts on the Stacks bl
   - Risky `tx-sender` usage (phishing vectors).
   - Strict block-height equality checks.
   - Unvalidated trait implementations.
+
+## Included Samples
+
+This repo includes sample Clarity contracts to demonstrate the tool:
+- `contracts/vulnerable-sample.clar`: Contains intentional flaws for detection.
+- `contracts/safe-sample.clar`: Shows correct patterns.
 
 ## Usage
 
@@ -29,8 +38,8 @@ npm run scan ./contracts
 ```text
 🔍 Starting Clarity Static Analysis...
 
-Checking my-contract.clar...
-❌ Issues found in my-contract.clar:
+Checking vulnerable-sample.clar...
+❌ Issues found:
    - [HIGH] Potential unchecked return value from 'contract-call?'.
    - [MEDIUM] Usage of 'tx-sender' in assertions can be risky.
 ```
